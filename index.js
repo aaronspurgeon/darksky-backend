@@ -25,6 +25,11 @@ server.get("/weather", (req, res) => {
     units: "auto"
   });
 
+  request.headers({
+    "x-rapidapi-host": process.env.RAPID_HOST,
+    "x-rapidapi-key": process.env.RAPID_API_KEY
+  });
+
   request.end(res => {
     if (res.error) res.status(500).end();
 
